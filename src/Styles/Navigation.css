@@ -1,0 +1,31 @@
+.nav-bar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.nav-text {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 14px 16px;
+}
+
+.nav-text:hover {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.nav-text:last-child {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/* .nav-text.active {
+  background-color: #04aa6d;
+  color: white;
+} */
