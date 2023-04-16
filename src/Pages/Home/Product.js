@@ -26,7 +26,7 @@ const Product = () => {
 
   productItems = state.apiRAW.products.map((product) => {
     return (
-      <div className="product-container">
+      <div className="product-container" key={product.id}>
         <h3>{product.title}</h3>
         <p>{product.description}</p>
       </div>

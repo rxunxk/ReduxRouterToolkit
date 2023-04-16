@@ -26,7 +26,7 @@ const Todos = () => {
 
   todoItems = state.apiRAW.todos.map((task) => {
     return (
-      <div className="product-container">
+      <div className="product-container" key={task.id}>
         <p>{task.todo}</p>
       </div>
     );

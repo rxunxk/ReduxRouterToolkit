@@ -19,29 +19,19 @@ const Home = () => {
     comp = <Users />;
   }
 
-  //functions
-  const getProducts = () => {
-    dispatch(setTitle("Products"));
-    dispatch(callAPI("products"));
+  //Click Handler function
+  const clickHandler = (str) => {
+    dispatch(setTitle(str));
+    dispatch(callAPI(str.toLowerCase()));
   };
-
-  const getTodos = () => {
-    dispatch(setTitle("Todos"));
-    dispatch(callAPI("todos"));
-  };
-
-  const getUsers = () => {
-    dispatch(setTitle("Users"));
-    dispatch(callAPI("users"));
-  };
-
   return (
     <>
       <h1> Welcome to Home page</h1>
       <div className="btn-box">
-        <button onClick={getProducts}>Products</button>
-        <button onClick={getTodos}>Todos</button>
-        <button onClick={getUsers}>Users</button>
+        {/* Using the bind method here because we can pass arguments directly without having a performance problem */}
+        <button onClick={clickHandler.bind(null, "Products")}>Products</button>
+        <button onClick={clickHandler.bind(null, "Todos")}>Todos</button>
+        <button onClick={clickHandler.bind(null, "Users")}>Users</button>
       </div>
       <div className="data-container">
         <h1>{title}</h1>

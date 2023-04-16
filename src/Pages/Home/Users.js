@@ -26,7 +26,7 @@ const Users = () => {
 
   userItems = state.apiRAW.users.map((user) => {
     return (
-      <div className="product-container">
+      <div className="product-container" key={user.id}>
         <p>{user.firstName}</p>
       </div>
     );
