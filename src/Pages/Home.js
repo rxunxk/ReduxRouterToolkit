@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "../Styles/Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { callAPI } from "../redux/slices/callAPISlice";
@@ -11,7 +10,6 @@ const Home = () => {
   let comp;
   const title = useSelector(getTitleSelectors);
   const dispatch = useDispatch();
-  //const [comp, setComp] = useState(<Product />);
 
   if (title === "Products") {
     comp = <Product />;
@@ -23,19 +21,16 @@ const Home = () => {
 
   //functions
   const getProducts = () => {
-    //setComp(<Product />);
     dispatch(setTitle("Products"));
     dispatch(callAPI("products"));
   };
 
   const getTodos = () => {
-    //setComp(<Todos />);
     dispatch(setTitle("Todos"));
     dispatch(callAPI("todos"));
   };
 
   const getUsers = () => {
-    //setComp(<Users />);
     dispatch(setTitle("Users"));
     dispatch(callAPI("users"));
   };
