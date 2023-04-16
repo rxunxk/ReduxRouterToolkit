@@ -8,25 +8,34 @@ import Todos from "./Home/Todos";
 import Users from "./Home/Users";
 
 const Home = () => {
+  let comp;
   const title = useSelector(getTitleSelectors);
   const dispatch = useDispatch();
-  const [comp, setComp] = useState(<Product />);
+  //const [comp, setComp] = useState(<Product />);
+
+  if (title === "Products") {
+    comp = <Product />;
+  } else if (title === "Todos") {
+    comp = <Todos />;
+  } else {
+    comp = <Users />;
+  }
 
   //functions
   const getProducts = () => {
-    setComp(<Product />);
+    //setComp(<Product />);
     dispatch(setTitle("Products"));
     dispatch(callAPI("products"));
   };
 
   const getTodos = () => {
-    setComp(<Todos />);
+    //setComp(<Todos />);
     dispatch(setTitle("Todos"));
     dispatch(callAPI("todos"));
   };
 
   const getUsers = () => {
-    setComp(<Users />);
+    //setComp(<Users />);
     dispatch(setTitle("Users"));
     dispatch(callAPI("users"));
   };
