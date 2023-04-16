@@ -1,26 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { callAPI } from "../redux/slices/callAPISlice";
 import { setTitle, getTitleSelectors } from "../redux/slices/titleSlice";
-import Product from "./Product";
+import Product from "./Home/Product";
+import Todos from "./Home/Todos";
+import Users from "./Home/Users";
 
 const Home = () => {
   const title = useSelector(getTitleSelectors);
   const dispatch = useDispatch();
+  const [comp, setComp] = useState(<Product />);
 
   //functions
   const getProducts = () => {
+    setComp(<Product />);
     dispatch(setTitle("Products"));
     dispatch(callAPI("products"));
   };
 
   const getTodos = () => {
+    setComp(<Todos />);
     dispatch(setTitle("Todos"));
     dispatch(callAPI("todos"));
   };
 
   const getUsers = () => {
+    setComp(<Users />);
     dispatch(setTitle("Users"));
     dispatch(callAPI("users"));
   };
@@ -35,7 +41,7 @@ const Home = () => {
       </div>
       <div className="data-container">
         <h1>{title}</h1>
-        <Product />
+        {comp}
       </div>
     </>
   );
