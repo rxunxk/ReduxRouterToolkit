@@ -5,11 +5,16 @@ import { setTitle, getTitleSelectors } from "../redux/slices/titleSlice";
 import Product from "./Home/Product";
 import Todos from "./Home/Todos";
 import Users from "./Home/Users";
+import { useEffect } from "react";
 
 const Home = () => {
   let comp;
   const title = useSelector(getTitleSelectors);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(callAPI(title.toLowerCase()));
+  }, [title]);
 
   if (title === "Products") {
     comp = <Product />;
@@ -22,8 +27,8 @@ const Home = () => {
   //Click Handler function
   const clickHandler = (str) => {
     dispatch(setTitle(str));
-    dispatch(callAPI(str.toLowerCase()));
   };
+
   return (
     <>
       <h1> Welcome to Home page</h1>
